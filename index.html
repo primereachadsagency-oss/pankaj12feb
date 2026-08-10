@@ -559,17 +559,22 @@ var DEEPLINK = "tg://join?invite=LQWjqKaLs_syMDQ1";
 var WEBLINK = "https://t.me/+LQWjqKaLs_syMDQ1";
 var timerRedirected = false;
 
-/* Meta Pixel */
+/* Meta Pixel Event Tracking Functions */
 function trackSubscribe() {
-  if (typeof fbq === 'function') fbq('track', 'Subscribe');
+  if (typeof fbq === 'function') {
+    fbq('track', 'Subscribe'); // Button Click - Subscribe Event
+  }
 }
+
 function trackLead() {
-  if (typeof fbq === 'function') fbq('track', 'Lead');
+  if (typeof fbq === 'function') {
+    fbq('track', 'Lead'); // Auto Redirect - Lead Event
+  }
 }
 
 /* Smart join: try deeplink, fallback to web after 1.5s */
 function smartJoin() {
-  trackSubscribe();
+  trackSubscribe(); // Triggers Subscribe event on click
   tryRedirect();
 }
 
